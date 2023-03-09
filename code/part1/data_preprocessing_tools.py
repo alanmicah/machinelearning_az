@@ -1,10 +1,8 @@
 # Library an assemble of classes and functions
 # Allows us to work with arrays
-from cv2 import transform
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from sympy import im
 
 # Import the libraries
 dataset = pd.read_csv('Data.csv')
