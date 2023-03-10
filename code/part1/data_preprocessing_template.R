@@ -18,6 +18,7 @@ dataset$Salary = ifelse(is.na(dataset$Salary),
 
 # Encoding categorical data
 # c() is a vector
+# factor is not a numeric number
 dataset$Country = factor(dataset$Country,
                          levels = c('France', 'Spain', 'Germany'),
                          labels = c(1,2,3))
@@ -34,3 +35,8 @@ set.seed(123)
 split = sample.split(dataset$Purchased, SplitRatio = 0.8)
 training_set = subset(dataset, split == TRUE)
 test_set = subset(dataset, split == FALSE)
+
+# Euclidean Distance will be dominated by the Salary (so much larger)
+# Feature Scaling
+training_set[, 2:3] = scale(training_set[, 2:3])
+test_set[, 2:3] = scale(test_set[, 2:3])
